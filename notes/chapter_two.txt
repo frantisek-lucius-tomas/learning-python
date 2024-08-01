@@ -1,0 +1,50 @@
+boolean values
+
+true or false nothing more
+
+comparison operators
+
+| == | equal to
+| != | not equat to
+| <  | less than 
+| >  | greater than
+| <= | less than or equal to
+| >= | greater than or equal to
+
+binary boolean operators
+
+and : 
+
+true and true = true
+true and false = false 
+false and true = false 
+false and false = false
+
+or : 
+
+true or true = true
+true or false = trues
+false or true = true 
+false or false = false
+
+not : 
+
+not true = false 
+not false = true
+
+flow control statements
+
+if execute only if true skip if false
+else execute only if is false
+elif execute only if previous if was false
+
+while loop statements
+
+while will be execute over and over if it is true   
+
+break end loop if it is on line
+continue shot to start loop
+
+for and range() :
+
+I ended up on page 77
