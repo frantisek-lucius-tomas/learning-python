@@ -1,0 +1,100 @@
+def fun():
+
+definate function with name
+
+def statements with parameters
+
+return values and return statements
+
+return will give response in return value
+
+the none value
+
+end and sep in print()
+
+print('Hello', end='')
+print('World')
+
+HelloWorld
+
+>>> print('cats', 'dogs', 'mice')
+cats dogs mice
+
+>>> print('cats', 'dogs', 'mice', sep=',')
+cats,dogs,mice
+
+local and global scope
+
+parameters and variables that are assigned in a called function are said
+to exist in that function’s local scope. variables that are assigned outside all
+functions are said to exist in the global scope. a variable that exists in a local
+scope is called a local variable, while a variable that exists in the global scope
+is called a global variable. a variable must be one or the other; it cannot be
+both local and global.
+
+the global statement
+
+def spam():
+    global eggs
+    eggs = 'spam'
+eggs = 'global'
+spam()
+print(eggs)
+
+spam
+
+If you need to modify a global variable from within a function, use the global
+statement. If you have a line such as global eggs at the top of a function,
+it tells Python, “In this function, eggs refers to the global variable, so don’t
+create a local variable with this name.”
+
+def spam(divideBy):
+    try:
+    return 42 / divideBy
+    except ZeroDivisionError:
+    print('Error: Invalid argument.')
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))
+
+21.0
+3.5
+Error: Invalid argument.
+None
+42.0
+
+def spam(divideBy):
+    return 42 / divideBy
+try:
+    print(spam(2))
+    print(spam(12))
+    print(spam(0))
+    print(spam(1))
+except ZeroDivisionError:
+    print('Error: Invalid argument.')
+
+21.0
+3.5
+Error: Invalid argument.
+
+the reason print(spam(1)) is never executed is because once the execution jumps to the code in the except clause,
+it does not return to the try clause. instead, it just continues moving down as normal.
+
+summary 
+
+functions are the primary way to compartmentalize your code into logical
+groups. Since the variables in functions exist in their own local scopes, the
+code in one function cannot directly affect the values of variables in other
+functions. this limits what code could be changing the values of your variables,
+which can be helpful when it comes to debugging your code.
+functions are a great tool to help you organize your code. you can
+think of them as black boxes: they have inputs in the form of parameters
+and outputs in the form of return values, and the code in them doesn’t
+affect variables in other functions.
+in previous chapters, a single error could cause your programs to crash.
+in this chapter, you learned about try and except statements, which can run
+code when an error has been detected. this can make your programs more
+resilient to common error cases.
+
+I ended up on page 102

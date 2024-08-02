@@ -47,4 +47,34 @@ continue shot to start loop
 
 for and range() :
 
-I ended up on page 77
+doing number of times in range variable is auto increase
+
+range(12, 16) 
+first is start and second is end
+
+range(0, 10, 2)
+first is start second is end and the trihd is 2x how much increase
+
+import 
+
+you import liberis 
+
+import random
+random.randint(1, 10)
+gives random numbers between 1 and 10
+
+from import Statements
+if use this you dont need use random.somethin
+
+summary 
+
+by using expressions that evaluate to True or False (also called conditions),
+you can write programs that make decisions on what code to execute and
+what code to skip. you can also execute code over and over again in a loop
+while a certain condition evaluates to True. the break and continue statements
+are useful if you need to exit a loop or jump back to the start.
+these flow control statements will let you write much more intelligent
+programs. there’s another type of flow control that you can achieve by writing your own
+functions, which is the topic of the next chapter.
+
+I ended up on page 84
