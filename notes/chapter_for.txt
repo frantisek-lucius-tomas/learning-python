@@ -1,0 +1,14 @@
+the list data type
+
+a list is a value that contains multiple values in an ordered sequence. the
+term list value refers to the list itself (which is a value that can be stored in a
+variable or passed to a function like any other value), not the values inside
+the list value. a list value looks like this: ['cat', 'bat', 'rat', 'elephant'].
+just as string values are typed with quote characters to mark where the
+string begins and ends, a list begins with an opening square bracket and
+ends with a closing square bracket, []. values inside the list are also called
+items. items are separated with commas (that is, they are comma-delimited).
+
+getting individual values in a list with indexes
+
+end on page 104
