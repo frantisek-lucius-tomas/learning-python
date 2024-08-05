@@ -11,4 +11,280 @@ items. items are separated with commas (that is, they are comma-delimited).
 
 getting individual values in a list with indexes
 
-end on page 104
+say you have the list ['cat', 'bat', 'rat', 'elephant'] stored in a variable
+named spam. the python code spam[0] would evaluate to 'cat', and spam[1] would
+evaluate to 'bat', and so on.the integer inside the square brackets that follows
+the list is called an index. the first value in the list is at index 0,
+the second value is at index 1, the third value is at index 2, and so on.
+figure 4-1 shows a list value assigned to spam, along with what theindex expressions
+would evaluate to.
+
+lists can also contain other list values. the values in these lists of lists
+can be accessed using multiple indexes, like so:
+
+>>> spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]
+>>> spam[0]
+['cat', 'bat']
+>>> spam[0][1]
+'bat'
+>>> spam[1][4]
+50
+
+negative indexes
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[-1]
+'elephant'
+>>> spam[-3]
+'bat'
+
+while indexes start at 0 and go up, you can also use negative integers for
+the index. the integer value -1 refers to the last index in a list, the value -2
+refers to the second-to-last index in a list, and so on.
+
+getting sublists with slices
+
+just as an index can get a single value from a list, a slice can get several values
+from a list, in the form of a new list. a slice is typed between square brackets,
+like an index, but it has two integers separated by a colon. notice the difference between indexes and slices.
+• spam[2] is a list with an index (one integer).
+• spam[1:4] is a list with a slice (two integers).
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[0:4]
+['cat', 'bat', 'rat', 'elephant']
+>>> spam[1:3]
+['bat', 'rat']
+>>> spam[0:-1]
+['cat', 'bat', 'rat']
+
+as a shortcut, you can leave out one or both of the indexes on either side
+of the colon in the slice. leaving out the first index is the same as using 0,
+or the beginning of the list. leaving out the second index is the same as
+using the length of the list, which will slice to the end of the list.
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[:2]
+['cat', 'bat']
+>>> spam[1:]
+['bat', 'rat', 'elephant']
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[1] = 'aardvark'
+>>> spam
+['cat', 'aardvark', 'rat', 'elephant']
+>>> spam[2] = spam[1]
+>>> spam
+['cat', 'aardvark', 'aardvark', 'elephant']
+>>> spam[-1] = 12345
+>>> spam
+['cat', 'aardvark', 'aardvark', 12345]
+
+removing values from lists with del statements
+
+the del statement will delete values at an index in a list. all of the values
+in the list after the deleted value will be moved up one index.
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> del spam[2]
+>>> spam
+['cat', 'bat', 'elephant']
+>>> del spam[2]
+>>> spam
+['cat', 'bat']
+
+the in and not in operators
+
+you can determine whether a value is or isn’t in a list with the in and not in
+operators. like other operators, in and not in are used in expressions and
+connect two values: a value to look for in a list and the list where it may be
+found. these expressions will evaluate to a Boolean value.
+
+>>> 'howdy' in ['hello', 'hi', 'howdy', 'heyas']
+True
+>>> spam = ['hello', 'hi', 'howdy', 'heyas']
+>>> 'cat' in spam
+False
+>>> 'howdy' not in spam
+False
+>>> 'cat' not in spam
+True
+
+augmented assignment operators
+
+spam = spam + 1  |  spam += 1
+spam = spam - 1  |  spam -= 1
+spam = spam * 1  |  spam *= 1
+spam = spam / 1  |  spam /= 1
+spam = spam % 1  |  spam %= 1
+
+methods
+
+finding a value in a list with the index() method
+
+list values have an index() method that can be passed a value, and if that
+value exists in the list, the index of the value is returned. if the value isn’t
+in the list, then Python produces a ValueError error.
+
+>>> spam = ['hello', 'hi', 'howdy', 'heyas']
+>>> spam.index('hello')
+0
+>>> spam.index('heyas')
+3
+
+when there are duplicates of the value in the list, the index of its first
+appearance is returned.
+
+>>> spam = ['Zophie', 'Pooka', 'Fat-tail', 'Pooka']
+>>> spam.index('Pooka')
+1
+
+adding values to lists with the append() and insert() methods
+
+>>> spam = ['cat', 'dog', 'bat']
+>>> spam.append('moose')
+>>> spam
+['cat', 'dog', 'bat', 'moose']
+
+the previous append() method call adds the argument to the end of
+the list.
+
+the insert() method can insert a value at any index in the list.
+the first argument to insert() is the index for the new value, and the second
+argument is the new value to be inserted.
+
+>>> spam = ['cat', 'dog', 'bat']
+>>> spam.insert(1, 'chicken')
+>>> spam
+['cat', 'chicken', 'dog', 'bat']
+
+removing values from lists with remove()
+
+the remove() method is passed the value to be removed from the list it is called on.
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam.remove('bat')
+>>> spam
+['cat', 'rat', 'elephant']
+
+the del statement is good to use when you know the index of the value
+you want to remove from the list. the remove() method is good when you
+know the value you want to remove from the list.
+
+sorting the values in a list with the sort() method
+
+>>> spam = [2, 5, 3.14, 1, -7]
+>>> spam.sort()
+>>> spam
+[-7, 1, 2, 3.14, 5]
+>>> spam = ['ants', 'cats', 'dogs', 'badgers', 'elephants']
+>>> spam.sort()
+>>> spam
+['ants', 'badgers', 'cats', 'dogs', 'elephants']
+
+you can also pass True for the reverse keyword argument to have sort()
+sort the values in reverse order.
+
+>>> spam.sort(reverse=True)
+>>> spam
+['elephants', 'dogs', 'cats', 'badgers', 'ants']
+
+if you need to sort the values in regular alphabetical order, pass str.
+lower for the key keyword argument in the sort() method call.
+
+>>> spam = ['a', 'z', 'A', 'Z']
+>>> spam.sort(key=str.lower)
+>>> spam
+['a', 'A', 'z', 'Z']
+
+list-like types: strings and tuples
+
+Lists aren’t the only data types that represent ordered sequences of values.
+For example, strings and lists are actually similar, if you consider a string to
+be a “list” of single text characters. Many of the things you can do with lists 
+can also be done with strings: indexing; slicing; and using them with for
+loops, with len(), and with the in and not in operators.
+
+>>> name = 'Zophie'
+>>> name[0]
+'Z'
+>>> name[-2]
+'i'
+>>> name[0:4]
+'Zoph'
+>>> 'Zo' in name
+True
+>>> 'z' in name
+False
+>>> 'p' not in name
+False
+
+mutable and immutable data types
+
+but lists and strings are different in an important way. a list value is a mutable
+data type: it can have values added, removed, or changed. however, a string
+is immutable: It cannot be changed.
+
+the tuple data type
+
+the tuple data type is almost identical to the list data type, except in two
+ways. first, tuples are typed with parentheses, ( and ), instead of square brackets, [ and ].
+
+>>> eggs = ('hello', 42, 0.5)
+>>> eggs[0]
+'hello'
+>>> eggs[1:3]
+(42, 0.5)
+>>> len(eggs)
+3
+
+but the main way that tuples are different from lists is that tuples,
+like strings, are immutable. tuples cannot have their values modified, appended, or removed. 
+
+converting types with the list() and tuple() functions
+
+just like how str(42) will return '42', the string representation of the integer 42,
+the functions list() and tuple() will return list and tuple versions of the values passed to them.
+
+the copy Module’s copy() and deepcopy() functions
+
+although passing around references is often the handiest way to deal with
+lists and dictionaries, if the function modifies the list or dictionary that is
+passed, you may not want these changes in the original list or dictionary
+value. for this, python provides a module named copy that provides both
+the copy() and deepcopy() functions. the first of these, copy.copy(), can be used
+to make a duplicate copy of a mutable value like a list or dictionary, not just a
+copy of a reference.
+
+>>> import copy
+>>> spam = ['A', 'B', 'C', 'D']
+>>> cheese = copy.copy(spam)
+>>> cheese[1] = 42
+>>> spam
+['A', 'B', 'C', 'D']
+>>> cheese
+['A', 42, 'C', 'D']
+
+if the list you need to copy contains lists, then use the copy.deepcopy()
+function instead of copy.copy(). the deepcopy() function will copy these inner lists as well.
+
+summary
+
+lists are useful data types since they allow you to write code that works on a
+modifiable number of values in a single variable. later in this book, you will
+see programs using lists to do things that would be difficult or impossible to
+do without them.
+lists are mutable, meaning that their contents can change. tuples and
+strings, although list-like in some respects, are immutable and cannot be
+changed. a variable that contains a tuple or string value can be overwritten
+with a new tuple or string value, but this is not the same thing as modifying
+the existing value in place—like, say, the append() or remove() methods do on
+lists.
+variables do not store list values directly; they store references to lists.
+this is an important distinction when copying variables or passing lists as
+arguments in function calls. because the value that is being copied is the
+list reference, be aware that any changes you make to the list might impact
+another variable in your program. you can use copy() or deepcopy() if you
+want to make changes to a list in one variable without modifying the original list.
+
+I ended up on page 128
