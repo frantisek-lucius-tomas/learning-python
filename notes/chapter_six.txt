@@ -1,0 +1,194 @@
+working with strings
+
+escape characters
+
+an escape character lets you use characters that are otherwise impossible to
+put into a string. an escape character consists of a backslash (\) followed
+by the character you want to add to the string. (despite consisting of two
+characters, it is commonly referred to as a singular escape character.) for
+example, the escape character for a single quote is \'. you can use this
+inside a string that begins and ends with single quotes.
+
+>>> spam = 'Say hi to Bob\'s mother.'
+
+    \'  |  single quote
+    \"  |  double quote
+    \t  |  tab
+    \n  |  newline (line break)
+    \\  |  backslash
+
+You can place an r before the beginning quotation mark of a string to make
+it a raw string. A raw string completely ignores all escape characters and
+prints any backslash that appears in the string.
+
+>>> print(r'That is Carol\'s cat.')
+That is Carol\'s cat.
+
+multiline strings with triple quotes
+
+while you can use the \n escape character to put a newline into a string, it
+is often easier to use multiline strings. a multiline string in python begins
+and ends with either three single quotes or three double quotes. any quotes,
+tabs, or newlines in between the “triple quotes” are considered part of the
+string. python’s indentation rules for blocks do not apply to lines inside a
+multiline string.
+
+print(''
+Dear Alice,
+Eve's cat has been arrested for catnapping, cat burglary, and extortion.
+Sincerely,
+Bob''')
+
+Dear Alice,
+Eve's cat has been arrested for catnapping, cat burglary, and extortion.
+Sincerely,
+Bob
+
+def spam():
+    """This is a multiline comment to help
+    explain what the spam() function does."""
+    print('Hello!')
+
+useful string methods
+
+the upper(), lower(), isupper(), and islower() string methods
+
+>>> spam = 'Hello world!'
+>>> spam = spam.upper()
+>>> spam
+'HELLO WORLD!'
+>>> spam = spam.lower()
+>>> spam
+'hello world!'
+
+>>> spam = 'Hello world!'
+>>> spam.islower()
+False
+>>> spam.isupper()
+False
+>>> 'HELLO'.isupper()
+True
+>>> 'abc12345'.islower()
+True
+
+>>> 'Hello'.upper()
+'HELLO'
+>>> 'Hello'.upper().lower()
+'hello'
+>>> 'Hello'.upper().lower().upper()
+'HELLO'
+>>> 'HELLO'.lower()
+'hello'
+>>> 'HELLO'.lower().islower()
+True
+
+isalpha() returns True if the string consists only of letters and is not blank.
+isalnum() returns True if the string consists only of letters and numbers and is not blank.
+isdecimal() returns True if the string consists only of numeric characters and is not blank.
+isspace() returns True if the string consists only of spaces, tabs, and newlines and is not blank.
+istitle() returns True if the string consists only of words that begin with an uppercase letter
+followed by only lowercase letters.
+
+>>> 'hello'.isalpha()
+True
+>>> 'hello123'.isalpha()
+False
+>>> 'hello123'.isalnum()
+True
+>>> 'hello'.isalnum()
+True
+>>> '123'.isdecimal()
+True
+>>> ' '.isspace()
+True
+>>> 'This Is Title Case'.istitle()
+True
+>>> 'This Is Title Case 123'.istitle()
+True
+>>> 'This Is not Title Case'.istitle()
+False
+>>> 'This Is NOT Title Case Either'.istitle()
+False
+
+the startswith() and endswith() string methods
+
+>>> 'Hello world!'.startswith('Hello')
+True
+>>> 'Hello world!'.endswith('world!')
+True
+>>> 'abc123'.startswith('abcdef')
+False
+>>> 'abc123'.endswith('12')
+False
+>>> 'Hello world!'.startswith('Hello world!')
+True
+>>> 'Hello world!'.endswith('Hello world!')
+True
+
+the join() and split() string methods
+
+>>> ', '.join(['cats', 'rats', 'bats'])
+'cats, rats, bats'
+>>> ' '.join(['My', 'name', 'is', 'Simon'])
+'My name is Simon'
+>>> 'ABC'.join(['My', 'name', 'is', 'Simon'])
+'MyABCnameABCisABCSimon'
+
+>>> 'My name is Simon'.split()
+['My', 'name', 'is', 'Simon']
+
+>>> 'MyABCnameABCisABCSimon'.split('ABC')
+['My', 'name', 'is', 'Simon']
+>>> 'My name is Simon'.split('m')
+['My na', 'e is Si', 'on']
+
+justifying text with rjust(), ljust(), and center()
+
+>>> 'Hello'.rjust(10)
+' Hello'
+>>> 'Hello'.rjust(20)
+' Hello'
+>>> 'Hello World'.rjust(20)
+' Hello World'
+>>> 'Hello'.ljust(10)
+'Hello '
+
+'Hello'.rjust(10) says that we want to right-justify 'Hello' in a string of
+total length 10. 'Hello' is five characters, so five spaces will be added to its
+left, giving us a string of 10 characters with 'Hello' justified right.
+an optional second argument to rjust() and ljust() will specify a fill
+character other than a space character
+
+>>> 'Hello'.rjust(20, '*')
+'***************Hello'
+>>> 'Hello'.ljust(20, '-')
+'Hello---------------'
+
+the center() string method works like ljust() and rjust() but centers
+the text rather than justifying it to the left or right.
+
+>>> 'Hello'.center(20)
+' Hello '
+>>> 'Hello'.center(20, '=')
+'=======Hello========'
+
+removing whitespace with strip(), rstrip(), and lstrip()
+
+>>> spam = ' Hello World '
+>>> spam.strip()
+'Hello World'
+>>> spam.lstrip()
+'Hello World '
+>>> spam.rstrip()
+' Hello World'
+
+>>> spam = 'SpamSpamBaconSpamEggsSpamSpam'
+>>> spam.strip('ampS')
+'BaconSpamEggs'
+
+copying and pasting strings with the pyperclip module
+
+>>> import pyperclip
+>>> pyperclip.copy('Hello world!')
+>>> pyperclip.paste()
+'Hello world!'
