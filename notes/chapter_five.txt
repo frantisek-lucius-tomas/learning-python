@@ -1,0 +1,148 @@
+the dictionary data type
+
+like a list, a dictionary is a collection of many values. but unlike indexes for
+lists, indexes for dictionaries can use many different data types, not just integers.
+indexes for dictionaries are called keys, and a key with its associated value is
+called a key-value pair. in code, a dictionary is typed with braces, {}.
+
+>>> myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}
+
+>>> myCat['size']
+'fat'
+>>> 'My cat has ' + myCat['color'] + ' fur.'
+'My cat has gray fur.'
+
+dictionaries vs. lists
+
+unlike lists, items in dictionaries are unordered. the first item in a list
+named spam would be spam[0]. but there is no “first” item in a dictionary.
+while the order of items matters for determining whether two lists are the
+same, it does not matter in what order the key-value pairs are typed in a dictionary.
+
+>>> spam = ['cats', 'dogs', 'moose']
+>>> bacon = ['dogs', 'moose', 'cats']
+>>> spam == bacon
+False
+>>> eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}
+>>> ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}
+>>> eggs == ham
+True
+
+the keys(), values(), and items() methods
+
+>>> spam = {'color': 'red', 'age': 42}
+
+>>> for v in spam.values():
+ print(v)
+red
+42
+
+>>> for k in spam.keys():
+ print(k)
+color
+age
+
+>>> for i in spam.items():
+ print(i)
+('color', 'red')
+('age', 42)
+
+you can also use the multiple assignment trick in a for loop to assign the key and value to separate variables.
+
+>>> spam = {'color': 'red', 'age': 42}
+>>> for k, v in spam.items():
+ print('Key: ' + k + ' Value: ' + str(v))
+Key: age Value: 42
+Key: color Value: red
+
+checking Whether a key or value exists in a dictionary
+
+recall from the previous chapter that the in and not in operators can check
+whether a value exists in a list. you can also use these operators to see whether
+a certain key or value exists in a dictionary.
+
+>>> spam = {'name': 'Zophie', 'age': 7}
+>>> 'name' in spam.keys()
+True
+>>> 'Zophie' in spam.values()
+True
+>>> 'color' in spam.keys()
+False
+>>> 'color' not in spam.keys()
+True
+>>> 'color' in spam
+False
+
+the get() method
+
+it’s tedious to check whether a key exists in a dictionary before accessing
+that key’s value. fortunately, dictionaries have a get() method that takes two
+arguments: the key of the value to retrieve and a fallback value to return if
+that key does not exist.
+
+the setdefault() method
+
+the setdefault() method offers a way to do this in one line of code. the
+first argument passed to the method is the key to check for, and the seconds
+argument is the value to set at that key if the key does not exist. if the key
+does exist, the setdefault() method returns the key’s value.
+
+>>> spam = {'name': 'Pooka', 'age': 5}
+>>> spam.setdefault('color', 'black')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+>>> spam.setdefault('color', 'white')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+
+pretty printing
+
+pprint.pprint(count)
+
+{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ 'a': 4,
+ 'b': 1,
+ 'c': 3,
+ 'd': 3,
+ 'e': 5,
+ 'g': 2,
+ 'h': 3,
+ 'i': 6,
+ 'k': 2,
+ 'l': 3,
+ 'n': 4,
+ 'o': 2,
+ 'p': 1,
+ 'r': 5,
+ 's': 3,
+ 't': 6,
+ 'w': 2,
+ 'y': 1}
+
+ssing data structures to model real-world things
+
+summary
+
+you learned all about dictionaries in this chapter. sists and dictionaries
+are values that can contain multiple values, including other lists and dictionaries.
+dictionaries are useful because you can map one item (the key)
+to another (the value), as opposed to lists, which simply contain a series
+of values in order. values inside a dictionary are accessed using square
+brackets just as with lists. instead of an integer index, dictionaries can have
+keys of a variety of data types: integers, floats, strings, or tuples. by organizing a
+program’s values into data structures, you can create representations
+of real-world objects. you saw an example of this with a tic-tac-toe board.
+that just about covers all the basic concepts of python programming!
+you’ll continue to learn new concepts throughout the rest of this book,
+but you now know enough to start writing some useful programs that can
+automate tasks. you might not think you have enough python knowledge to
+do things such as download web pages, update spreadsheets, or send text
+messages, but that’s where python modules come in! These modules, written by other programmers,
+provide functions that make it easy for you todo all these things. so let’s learn how to write
+real programs to do useful automated tasks.
